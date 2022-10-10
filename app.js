@@ -18,10 +18,10 @@ app.use(notFound);
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3000;
-
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://zerokodes:Success1998@nodeexpressprojects.ns89stl.mongodb.net/03-TASK-MANAGER?retryWrites=true&w=majority"
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
+    await connectDB(MONGO_URI);
     app.listen(port, console.log(`Server is listen on port ${port}...`));
   } catch (error) {
     console.log(error);
